@@ -9,12 +9,16 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+let g:ycm_confirm_extra_conf = 0 
+Plugin 'Valloric/YouCompleteMe'
+
 Plugin 'scrooloose/nerdTree'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'mattn/emmet-vim'
+Plugin 'Raimondi/delimitMate'
 
 call vundle#end()
 
