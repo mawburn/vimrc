@@ -19,6 +19,8 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'mattn/emmet-vim'
 Plugin 'Raimondi/delimitMate'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
 
@@ -41,3 +43,4 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Syntastic
 let g:syntastic_check_on_open=1
+let g:syntastic_javascript_checkers = ['eslint']
