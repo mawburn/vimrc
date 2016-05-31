@@ -44,3 +44,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Syntastic
 let g:syntastic_check_on_open=1
 let g:syntastic_javascript_checkers = ['eslint']
+
+" Emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
