@@ -9,13 +9,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-let g:ycm_confirm_extra_conf = 0 
-Plugin 'Valloric/YouCompleteMe'
-
 Plugin 'scrooloose/nerdTree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'mxw/vim-jsx'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'mattn/emmet-vim'
 Plugin 'Raimondi/delimitMate'
@@ -28,6 +26,8 @@ call vundle#end()
 filetype plugin indent on 
 
 " Basic settings
+set encoding=utf-8
+set nowrap
 colorscheme jellybeans
 set number
 set tabstop=2
@@ -40,10 +40,18 @@ autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" NERTree tabs
+let g:nerdtree_tabs_open_on_console_startup=1
 
 " Syntastic
 let g:syntastic_check_on_open=1
 let g:syntastic_javascript_checkers = ['eslint']
+
+" JSX
+let g:jsx_ext_required = 0
+autocmd BufNewFile,BufRead *.js set syntax=javascript.jsx
+autocmd BufRead,BufNewFile *.jsx set syntax=javascript.jsx
+autocmd BufRead,BufNewFile *.es6 set syntax=javascript.jsx
 
 " Emmet
 let g:user_emmet_install_global = 0
